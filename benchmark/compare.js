@@ -3,7 +3,8 @@ import { summary, benchmark, size, header, br } from 'mitata/reporter/table.mjs'
 
 const MAIN_BRANCH = 'main'
 const CURRENT_BRANCH_CMD = 'git symbolic-ref --short HEAD'
-const CURRENT_BRANCH = $(CURRENT_BRANCH_CMD, { encoding: 'utf8' }).replace(
+const opts = { encoding: 'utf8', stdio: 'pipe' }
+const CURRENT_BRANCH = $(CURRENT_BRANCH_CMD, opts).replace(
   /[\r\n]/g,
   ''
 )
@@ -13,12 +14,12 @@ const isMainBranch = MAIN_BRANCH === CURRENT_BRANCH
 const benchmarks = JSON.parse($('node benchmark/bench.js json')).benchmarks
 benchmarks.forEach(bench => (bench.branch = CURRENT_BRANCH))
 if (!isMainBranch) {
-  $(`git switch ${MAIN_BRANCH}`)
+  $(`git switch ${MAIN_BRANCH}`, opts)
   const mainBranchBench = JSON.parse(
     $('node benchmark/bench.js json')
   ).benchmarks
   mainBranchBench.forEach(bench => (bench.branch = MAIN_BRANCH))
-  $(`git switch ${CURRENT_BRANCH}`)
+  $(`git switch ${CURRENT_BRANCH}`, opts)
   benchmarks.push(...mainBranchBench)
 
   const results = {}
