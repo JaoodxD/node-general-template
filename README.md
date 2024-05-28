@@ -7,6 +7,7 @@ Batteries-excluded starter template for general-purpose node modules
 - [x] [c8](https://github.com/bcoe/c8) code coverage
 - [x] [standard](https://github.com/standard/standard) linter
 - [x] [mitata](https://github.com/evanwashere/mitata) benchmarks
-- [x] compare branches benchmarks via `npm run bench:compare`
+  - [x] benchmark current branch via `npm run bench`
+  - [x] compare branches benchmarks via `npm run bench:compare`
 - [ ] batteries
 
