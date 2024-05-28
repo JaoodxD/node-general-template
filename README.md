@@ -10,4 +10,3 @@ Batteries-excluded starter template for general-purpose node modules
   - [x] benchmark current branch via `npm run bench`
   - [x] compare branches benchmarks via `npm run bench:compare`
 - [ ] batteries
-
