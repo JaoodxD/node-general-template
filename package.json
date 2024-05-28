@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "standard | snazzy",
     "lint:fix": "standard --fix | snazzy",
-    "test": "c8 tap",
+    "test": "c8 --100 tap",
     "bench": "node benchmark/bench.js",
     "bench:compare": "node benchmark/compare.js"
   },
