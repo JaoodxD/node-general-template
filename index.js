@@ -1,4 +1,4 @@
 export default function init () {
-  console.log('Empty module')
-  return { hello: 'world' }
+  const message = { hello: 'world' }
+  return message
 }
