@@ -13,6 +13,13 @@ group('all together', () => {
     }
     return total
   })
+  bench('heavy', () => {
+    let total = 0
+    for (let i = 0; i < 1e6; i++) {
+      total += i
+    }
+    return total
+  })
 })
 
 await run(opts)
